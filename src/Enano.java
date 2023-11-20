@@ -38,25 +38,25 @@ public class Enano extends Thread {
 
     public void trabajar() throws InterruptedException {
         estado = Estado.TRABAJANDO;
-        System.out.println("El enano " + nombre + " está trabajando");
-        Thread.sleep(500);
+        System.out.println(enanoIdToString() + "El enano " + nombre + " está trabajando" + Casa.getTime());
+        sleepRandomTime(500, 1500);
     }
 
     public void comer() throws InterruptedException {
         puedeComer.acquire();
         estado = Estado.COMIENDO;
-        System.out.println("El enano " + nombre + " está comiendo");
-        Thread.sleep(500);
+        System.out.println("        " + enanoIdToString() + "El enano " + nombre + " está comiendo" + Casa.getTime());
+        sleepRandomTime(600, 800);
     }
 
     public void descansar() throws InterruptedException {
         estado = Estado.DURMIENDO;
-        System.out.println("El enano " + nombre + " está descansando");
-        Thread.sleep(500);
+        System.out.println(enanoIdToString() + "El enano " + nombre + " está descansando" + Casa.getTime());
+        sleepRandomTime(800, 1000);
     }
 
     public void sleepRandomTime(int min, int max) throws InterruptedException {
-        Thread.sleep((long) (Math.random() * max - min) + min);
+        Thread.sleep((long) (Math.random() * (max - min)) + min);
     }
 
     public void setEstado(Estado estado) {
@@ -73,5 +73,9 @@ public class Enano extends Thread {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public String enanoIdToString() {
+        return "(" + id + ") ";
     }
 }
