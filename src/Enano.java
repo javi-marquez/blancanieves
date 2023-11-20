@@ -45,7 +45,7 @@ public class Enano extends Thread {
     public void comer() throws InterruptedException {
         puedeComer.acquire();
         estado = Estado.COMIENDO;
-        System.out.println("        " + enanoIdToString() + "El enano " + nombre + " está comiendo" + Casa.getTime());
+        System.out.println("                " + enanoIdToString() + "El enano " + nombre + " está comiendo" + Casa.getTime());
         sleepRandomTime(600, 800);
     }
 

@@ -14,13 +14,13 @@ public class Casa {
     public static void sentarseEnLaMesa(int enanoId) throws InterruptedException {
         mesa.acquire();
         enanos[enanoId].setEstado(Enano.Estado.SENTADO);
-        System.out.println("    " + enanos[enanoId].enanoIdToString() + "El enano " + enanos[enanoId].getNombre()
+        System.out.println("        " + enanos[enanoId].enanoIdToString() + "El enano " + enanos[enanoId].getNombre()
                 + " se ha sentado a la mesa" + getTime());
     }
 
     public static void levantarseDeLaMesa(int enanoId) throws InterruptedException {
         mesa.release();
-        System.out.println("    " + enanos[enanoId].enanoIdToString() + "El enano " + enanos[enanoId].getNombre()
+        System.out.println("        " + enanos[enanoId].enanoIdToString() + "El enano " + enanos[enanoId].getNombre()
                 + " se ha levantado de la mesa" + getTime());
     }
 

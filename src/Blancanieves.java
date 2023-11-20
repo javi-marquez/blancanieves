@@ -42,12 +42,12 @@ public class Blancanieves extends Thread {
     }
 
     public void prepararComida(Enano enano) throws InterruptedException {
-        System.out.println("    " + enano.enanoIdToString() + "Blancanieves está preparando la comida para el enano " + enano.getNombre() + Casa.getTime());
+        System.out.println("        " + enano.enanoIdToString() + "Blancanieves está preparando la comida para el enano " + enano.getNombre() + Casa.getTime());
         Thread.sleep(500);
     }
 
     public void servirComida(Enano enano) {
-        System.out.println("    " + enano.enanoIdToString() + "Blancanieves le ha servido la comida al enano " + enano.getNombre() + Casa.getTime());
+        System.out.println("        " + enano.enanoIdToString() + "Blancanieves le ha servido la comida al enano " + enano.getNombre() + Casa.getTime());
         enano.getPuedeComer().release();
     }
 
