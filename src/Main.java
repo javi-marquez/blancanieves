@@ -19,6 +19,7 @@ public class Main {
         //e5.start();
         //e6.start();
         //blancanieves.start();
+        //dfgdf
 
         boolean maxReached = false, minReached = false;
         int min = 75, max = 100;
