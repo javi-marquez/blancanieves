@@ -1,5 +1,3 @@
-import java.util.concurrent.Semaphore;
-
 public class Blancanieves extends Thread {
     //Semaphore sirviendoComida = new Semaphore(1);
     boolean puedeDormir = false;
@@ -11,10 +9,10 @@ public class Blancanieves extends Thread {
     @Override
     public void run() {
 
-
         try {
             while (!puedeDormir) {
                 puedeDormir = true;
+
                 for (Enano enano : Casa.getEnanos()) {
                     if (enano.getEstado() != Enano.Estado.DURMIENDO) puedeDormir = false;
 
@@ -23,13 +21,9 @@ public class Blancanieves extends Thread {
                         servirComida(enano);
                     }
                 }
-
-                if (puedeDormir) {
-                    dormir();
-                } else {
-                    pasear();
-                }
+                pasear();
             }
+            dormir();
 
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
@@ -48,7 +42,7 @@ public class Blancanieves extends Thread {
 
     public void servirComida(Enano enano) {
         System.out.println("        " + enano.enanoIdToString() + "Blancanieves le ha servido la comida al enano " + enano.getNombre() + Casa.getTime());
-        enano.getPuedeComer().release();
+        enano.puedeComer();
     }
 
     public void pasear() throws InterruptedException {

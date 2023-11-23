@@ -59,6 +59,10 @@ public class Enano extends Thread {
         Thread.sleep((long) (Math.random() * (max - min)) + min);
     }
 
+    public void puedeComer(){
+        puedeComer.release();
+    }
+
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
@@ -67,9 +71,6 @@ public class Enano extends Thread {
         return estado;
     }
 
-    public Semaphore getPuedeComer() {
-        return puedeComer;
-    }
 
     public String getNombre() {
         return nombre;
